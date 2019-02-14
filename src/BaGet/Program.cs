@@ -60,7 +60,7 @@ namespace BaGet
                     if (!string.IsNullOrEmpty(root))
                         config.SetBasePath(root);
                     var env = builderContext.HostingEnvironment.EnvironmentName;
-                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
                     config.AddJsonFile($"appsettings.{env}.json", optional: true);
                 });
 

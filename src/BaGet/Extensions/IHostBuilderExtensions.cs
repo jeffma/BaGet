@@ -14,9 +14,10 @@ namespace BaGet.Extensions
             {
                 config.AddEnvironmentVariables();
 
-                config
-                    .SetBasePath(Environment.CurrentDirectory)
-                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                config.SetBasePath(Environment.CurrentDirectory);
+                var env = context.HostingEnvironment.EnvironmentName;
+                config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                config.AddJsonFile($"appsettings.{env}.json", optional: true);
 
                 if (args != null)
                 {
